@@ -49,7 +49,7 @@ function App() {
 // } 
   useEffect(() => {
     if 
-      !user.username &&
+      (!user.username &&
       history.location.pathname !== "/SignIn" &&
       history.location.pathname !== "/Forgot"
     ) {
