@@ -65,6 +65,7 @@ function App() {
   //  console.log(data1,keyArr)
     // console.log(Encrypt("hello"))
     // console.log(Decrypt(Encrypt("huiwahia")));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (
