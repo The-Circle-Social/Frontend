@@ -48,14 +48,14 @@ function App() {
 //     return strArr.join("");
 // } 
   useEffect(() => {
-    // if 
-    //   !user.username &&
-    //   history.location.pathname !== "/SignIn" &&
-    //   history.location.pathname !== "/Forgot"
-    // ) {
-    //   history.push("/Signup");
-    //   console.log(history);
-    // }
+    if 
+      !user.username &&
+      history.location.pathname !== "/SignIn" &&
+      history.location.pathname !== "/Forgot"
+    ) {
+      history.push("/Signup");
+      console.log(history);
+    }
   //   const data1 ={};
   //   const keyArr = Object.keys(data);
   //  keyArr.map(key => {
