@@ -9,7 +9,6 @@ export default function Cropper({ setImage ,handleSubmit }) {
   const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 1 / 1 });
   const [completedCrop, setCompletedCrop] = useState(null);
   const [dataURI, setDataURI] = useState(null);
-  const [isCroppingDone, setisCroppingDone] = useState(false);
   const onSelectFile = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const reader = new FileReader();
@@ -59,12 +58,12 @@ export default function Cropper({ setImage ,handleSubmit }) {
   const onsubmit = () => {
     if (!dataURI) return;
 
-    setisCroppingDone(true);
+    
     setImage(dataURI);
     handleSubmit()
   };
   const onClick = () => {
-    setisCroppingDone(false);
+   
     setUpImg(false);
   };
   return (

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ImageBig from "../assets/banner-big.png";
 import FormSignin from "../components/FormSignIn/FormSignin.component";
 
 const Signin = ({history ,setUser}) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  //const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
   
-    setIsSubmitted(true);
     history.push("/")
   }
   return (

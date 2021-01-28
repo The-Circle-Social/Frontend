@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import useSignUp from "../../hooks/useSignUp.hooks";
 import axios from "axios";
@@ -101,7 +102,7 @@ const UpdateUserInfo = ({ user, history, setUser }) => {
         "Image"(
           <>
             <Cropper setImage={setImage} handleSubmit={handleSubmit} />
-            <img src={imgsrc} height="100px" width="100px" />
+            <img src={imgsrc} height="100px" width="100px" alt="Preview" />
           </>
         )}
       {currentChoice === "description" ? (

@@ -4,10 +4,10 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { useState, useEffect } from "react";
 import * as d3 from "d3-ease";
 import Icon from "../assets/marker.png";
-import axios from "axios";
+//import axios from "axios";
 
 const Map = () => {
-  const [users, setUsers] = useState({});
+  //const [users, setUsers] = useState({});
   const defaultViewport = {
     width: "100vw",
     height: "100vh",

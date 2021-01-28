@@ -27,7 +27,7 @@ import {
 } from "./pages/Reports.pages";
 import Team from "./pages/Team.pages";
 import UpdateUserInfo from "./components/UpdateUserInfo/UpdateUserInfo.component";
-import useLocalStorage from './hooks/useLocalStorage'
+//import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
   const history = useHistory();
