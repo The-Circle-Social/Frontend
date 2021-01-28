@@ -1,0 +1,113 @@
+@import "../../Variable.styles.scss";
+.form-content-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin: 2rem;
+  font-family: Poppins, sans-serif;
+  &-heading {
+    font-size: 2.5rem;
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  &-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &--heading {
+      color: white;
+      text-align: left;
+      margin-left: -14rem;
+      margin-bottom: 1rem;
+      font-weight: 100;
+      font-size: 2rem;
+    }
+  }
+  &-form--input__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    label {
+      display: flex;
+      justify-content: center;
+    }
+    &--input {
+      height: 4rem;
+      max-width: 30rem;
+      width: 100%;
+      background-color: $black;
+      border: 0.5px solid rgba($blue, 0.5);
+      color: $blue;
+      padding: 1rem;
+      &::placeholder {
+        color: $blue;
+      }
+    }
+  }
+  &-btn {
+    height: 4rem;
+    display: block;
+    max-width: 30rem;
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 1rem;
+    background: linear-gradient(
+      90deg,
+      rgba(227, 36, 79, 1) 15%,
+      rgba(78, 205, 196, 1) 78%
+    );
+    border: none;
+    color: $white;
+    font-weight: bold;
+  }
+}
+.signup-show--password {
+  color: $white;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  label {
+    width: 65%;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+  }
+  margin-bottom: 3rem;
+}
+.signup-tc--container {
+  color: $white;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  label {
+    width: 65%;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  margin-bottom: 3rem;
+}
+.form-input-login-link {
+  color: rgba($white, 0.7);
+  font-size: 1.5rem;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}

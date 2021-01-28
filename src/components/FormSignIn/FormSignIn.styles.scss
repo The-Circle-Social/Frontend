@@ -1,0 +1,63 @@
+.signIn-form-content-right {
+  color: white;
+  margin: auto;
+  max-width: 350px;
+}
+
+.signIn-form-content-right h1 {
+  text-align: center;
+}
+
+#email {
+  margin-top: 100px;
+}
+
+#pass {
+  margin-bottom: 0;
+}
+
+.show-checkbox {
+  margin: 5px;
+  float: left;
+}
+
+.show-checkbox input {
+  position: relative;
+  top: 2px;
+}
+
+.form-forgot {
+  float: right;
+}
+
+.form-forgot a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.signIn-form-input-btn {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  width: 100%;
+  margin: 50px 0;
+  padding: 10px;
+  font-size: 1.5em;
+  background-image: linear-gradient(to right, #eb1b49, #888b95, #3cbfb6);
+  border: 0;
+}
+
+.form-signup {
+  width: 100%;
+  text-align: center;
+}
+
+.form-signup span {
+  opacity: 0.5;
+}
+
+.form-signup a {
+  text-decoration: none;
+  color: inherit;
+  font-size: larger;
+}
