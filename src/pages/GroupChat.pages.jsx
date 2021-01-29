@@ -4,7 +4,7 @@ let socket;
 const GroupChat = () => {
     useEffect(() =>{
         //
-        socket=io("127.0.0.1:3002",{transports: ['websocket']});
+        socket=io("https://guarded-inlet-86027.herokuapp.com/",{transports: ['websocket']});
         socket.on('trial', ()=>{
             alert('Hello');
         });
