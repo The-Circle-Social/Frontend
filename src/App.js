@@ -18,7 +18,7 @@ import DashBoard from "./App";
 import CrushSelection from "./components/CrushSelection/CrushSelection.component";
 import FormForgotVerification from "./components/FormForgotVerification.component";
 import Map from "./pages/Map.pages";
-import GroupChat from "./pages/GroupChat.pages.jsx"
+import PrivateChat from "./pages/PrivateChat.pages.jsx"
 import {
   Reports,
   ReportsOne,
@@ -27,6 +27,7 @@ import {
 } from "./pages/Reports.pages";
 import Team from "./pages/Team.pages";
 import UpdateUserInfo from "./components/UpdateUserInfo/UpdateUserInfo.component";
+import ChatDir from "./pages/ChatDir.pages";
 //import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
@@ -82,7 +83,7 @@ function App() {
             <ForgetPasswordFormComp history={history} setUser={setUser} />
           )}
         />
-      <Route path="/Group" render={() => (<GroupChat/>)}/>
+      <Route path="/dm/:user/:friend" render={() => (<PrivateChat user={user}/>)}/>
         <Route
           path="/getInfo"
           render={() => <FormSecondary user={user} history={history} />}
@@ -95,7 +96,7 @@ function App() {
         {/* <Route path="/DashBoard" component={DashBoard}/> */}
         <Route path="/DashBoard" component={DashBoard}></Route>
         <Route path="/map" exact component={Map} />
-
+        <Route path="/chatdir" exact component={ChatDir}/>
         <Route path="/overview" exact component={Overview} />
         <Route path="/reports" exact component={Reports} />
         <Route path="/reports/reports1" exact component={ReportsOne} />
@@ -107,7 +108,7 @@ function App() {
           exact
           render={() => <UpdateUserInfo user={user} setUser={setUser} />}
         />
-        <Route path="/" render={() => <CrushSelection user={user} />} />
+        <Route path="/" exact render={() => <CrushSelection user={user} />} />
       </Switch>
     </div>
   );
