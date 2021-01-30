@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import useGeolocation from 'react-hook-geolocation'
+//import useGeolocation from 'react-hook-geolocation'
 
 const useSignUp = (callback, validate) => {
   const [values, setValues] = useState({
@@ -58,7 +58,7 @@ const useSignUp = (callback, validate) => {
       [name]: value,
     });
   };
-  const geolocation = useGeolocation()
+  const geolocation = navigator.geolocation
   const handleSubmit = (e) => {
     e.preventDefault();
     const valid = validate();

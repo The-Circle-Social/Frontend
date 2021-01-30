@@ -1,53 +1,33 @@
-import "./App.scss";
-import Sidebar from "./components/Sidebar.component";
-//import data1 from "./Decrypt.js";
 import {
   Switch,
   Route,
   useHistory,
 } from "react-router-dom";
-//import data from "./Encrypt"
+// Components
+import Sidebar from "./components/Sidebar.component";
+import FormSecondary from "./components/FormSecondary.component";
+import CrushSelection from "./components/CrushSelection/CrushSelection.component";
+import FormForgotVerification from "./components/FormForgotVerification.component";
+import UpdateUserInfo from "./components/UpdateUserInfo/UpdateUserInfo.component";
+import UserProfile from "./components/UserProfile.component"
+//Pages 
 import Overview from "./pages/Overview.pages";
 import SignupFormComp from "./pages/Signup/Signup.pages";
 import SigninFormComp from "./pages/Signin.pages";
 import ForgetPasswordFormComp from "./pages/Forget.pages";
-import FormSecondary from "./components/FormSecondary.component";
 import { useEffect,useState } from "react";
 import Explore from "./pages/Explore.pages";
-import DashBoard from "./App";
-import CrushSelection from "./components/CrushSelection/CrushSelection.component";
-import FormForgotVerification from "./components/FormForgotVerification.component";
-import Map from "./pages/Map.pages";
+import Map from "./pages/Map/Map.pages";
 import PrivateChat from "./pages/PrivateChat.pages.jsx"
-import {
-  Reports,
-  ReportsOne,
-  ReportsTwo,
-  ReportsThree,
-} from "./pages/Reports.pages";
-import Team from "./pages/Team.pages";
-import UpdateUserInfo from "./components/UpdateUserInfo/UpdateUserInfo.component";
 import ChatDir from "./pages/ChatDir.pages";
+//Styles
+import "./App.scss";//import data1 from "./Decrypt.js";
+//Hooks
 //import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
   const history = useHistory();
   const [user, setUser] = useState({});
-//   const Encrypt = (str) => {
-//     let pass = ""
-//     for(let i = 0;i<str.length;i++){
-//       pass = pass + data[str[i]];
-//     }
-//     return pass;
-//   }
-//   const Decrypt = (hash) => {
-//     const hashArr = hash.match(/.{7}/g)
-//     const strArr= [];
-//     hashArr.map(str => {
-//       strArr.push(data1[str])
-//     })
-//     return strArr.join("");
-// } 
   useEffect(() => {
     // if 
     //   (!user.username &&
@@ -57,11 +37,7 @@ function App() {
     //   history.push("/Signup");
     //   console.log(history);
     // }
-  //   const data1 ={};
-  //  
-  //  console.log(data1,keyArr)
-    // console.log(Encrypt("hello"))
-    // console.log(Decrypt(Encrypt("huiwahia")));
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
@@ -76,7 +52,7 @@ function App() {
           render={() => <SignupFormComp setUser={setUser} history={history} />}
         />
         <Route path="/SignIn" render={() => <SigninFormComp history={history} setUser={setUser}/>} />
-
+        <Route path="/user/@:username" component={UserProfile}/>
         <Route
           path="/Forgot"
           render={() => (
@@ -84,25 +60,18 @@ function App() {
           )}
         />
       <Route path="/dm/:user/:friend" render={() => (<PrivateChat user={user}/>)}/>
-        <Route
+      <Route
           path="/getInfo"
           render={() => <FormSecondary user={user} history={history} />}
         />
-        <Route
+      <Route
           path="/getInfo"
           render={() => <FormSecondary user={user} history={history} />}
         />
         <Route path="/verify" component={FormForgotVerification} />
-        {/* <Route path="/DashBoard" component={DashBoard}/> */}
-        <Route path="/DashBoard" component={DashBoard}></Route>
         <Route path="/map" exact component={Map} />
         <Route path="/chatdir" exact component={ChatDir}/>
         <Route path="/overview" exact component={Overview} />
-        <Route path="/reports" exact component={Reports} />
-        <Route path="/reports/reports1" exact component={ReportsOne} />
-        <Route path="/reports/reports2" exact component={ReportsTwo} />
-        <Route path="/reports/reports3" exact component={ReportsThree} />
-        <Route path="/team" exact component={Team} />
         <Route
           path="/updateUserInfo"
           exact
