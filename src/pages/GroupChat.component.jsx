@@ -6,7 +6,7 @@ let socket;
 const GroupChat = () => {
     
     useEffect(() =>{
-        socket=io("127.0.0.1:3002",{transports: ['websocket']});
+        //socket=io("127.0.0.1:3002",{transports: ['websocket']});
         
     }, []);
     return ( 

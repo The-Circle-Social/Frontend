@@ -16,13 +16,12 @@ const PrivateChat = () => {
     const [currentMsg,setCurrentMsg] = useState("")
     useEffect(() =>{
        
-
-        socket=io("127.0.0.1:3002",{transports: ['websocket']});
+        socket=io("127.0.0.1:3003",{transports: ['websocket']});
         setChatInfo({
             friend,
             user
         })
-          socket.emit("connected",user)
+          socket.emit("connected",user);
           socket.on("recieve-message",(data) => {
             if(data.sender === user || data.sender === friend){
                

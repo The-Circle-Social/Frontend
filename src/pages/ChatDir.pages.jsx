@@ -7,8 +7,11 @@ const ChatDir = ({user}) => {
     const [groupName,setGroupName] = useState("")
     const [isCreate ,setIsCreate] = useState(false);
     const [chats,setChat] = useState([])
-    useEffect(() =>{
-        socket=io("127.0.0.1:3002",{transports: ['websocket']});
+    
+    useEffect(async () => {
+
+        //socket =  io("127.0.0.1:3002",{transports: ['websocket']});
+        console.log(123);
         setChat([
             {
                 id:uid(),
@@ -30,7 +33,9 @@ const ChatDir = ({user}) => {
                 name:"user4",
                 type:"private"   
             },
-        ])
+        ]);
+        socket.emit('connected', 'heet');
+        console.log(socket);
     }, []);
     const createGroup =() => {
         if(isCreate && groupName){
@@ -44,6 +49,9 @@ const ChatDir = ({user}) => {
                 ...chats,
                 
             ])
+        }
+        else{
+            alert("Sumaar")
         }
     }
 
@@ -67,7 +75,8 @@ const ChatDir = ({user}) => {
             {
                 isCreate?(
                     <div className="">
-                        <input type="text" name="createGroup" id=""/>
+                        <input type="text" name="createGroup" id="" onChange={({target}) => setGroupName(target.value)}
+                         value ={groupName} />
                         <button onClick={createGroup}>Submit</button>
                     </div>
                 ):null
