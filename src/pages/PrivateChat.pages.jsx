@@ -14,40 +14,50 @@ const PrivateChat = () => {
     }]);
     const [count,setCount] = useState(0)
     const [currentMsg,setCurrentMsg] = useState("")
+    useEffect(()=>{
+        socket=io("127.0.0.1:3003",{transports: ['websocket']});
+    },[])
     useEffect(() =>{
        
-        socket=io("127.0.0.1:3003",{transports: ['websocket']});
+        
+        console.log(123);
         setChatInfo({
             friend,
             user
         })
-          socket.emit("connected",user);
-          socket.on("recieve-message",(data) => {
-            if(data.sender === user || data.sender === friend){
-               
-            const msgArr= msgs
-            msgArr.push({
-                ...data,
-                id:uid()
-            });
-            setMsgs(msgArr)
-            setCount(count + 1)
-            
-        }
-        else{
-            alert(`${data.sender} has send you a msg`)
-        }
-          })
+          socket.emit("connected",chatInfo);
+         
         //return socket.disconnect()
     }, [msgs,friend,user,count]);
+    useEffect(()=>{
+        socket.on("recieve-message",(data) => {
+            console.log(data,count)
+          if(data.sender === friend){
+             
+          const msgArr= msgs
+          msgArr.push({
+              ...data,
+              id:uid()
+          });
+          setMsgs(msgArr)
+          setCount(count + 1)
+          
+      }
+      else{
+          alert(`${data.sender} has send you a msg`)
+      }
+        })
+    },[count])
 
     const onClickHandle = () => {
         if(currentMsg.length > 0){
+            
             const data= {
                 sender:chatInfo.user,
                 reciever:chatInfo.friend,
                 text:currentMsg
             }
+        console.log(data);
         socket.emit("send-message",data)
         const msgArr= msgs
         msgArr.push({
@@ -61,7 +71,6 @@ const PrivateChat = () => {
 
     }
     }
- 
     return ( 
         <div className="">
                 {

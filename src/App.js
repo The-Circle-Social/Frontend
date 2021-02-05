@@ -29,6 +29,7 @@ function App() {
   const history = useHistory();
   const [user, setUser] = useState({});
   useEffect(() => {
+    //client.service("message").create({})
     // if 
     //   (!user.username &&
     //   history.location.pathname !== "/SignIn" &&
