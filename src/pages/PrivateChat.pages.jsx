@@ -13,9 +13,13 @@ const PrivateChat = () => {
     }]);
     const [count,setCount] = useState(0)
     const [currentMsg,setCurrentMsg] = useState("")
+    const [data1,setData1] = useState([]);
+    const [socket1,setSocket1] = useState(0)
     useEffect(()=>{
         socket=io("127.0.0.1:3003",{transports: ['websocket']});
+        
     },[])
+  
     useEffect(() =>{
         console.log(123);
         if(user){
@@ -25,6 +29,13 @@ const PrivateChat = () => {
                 friend
             });
         }
+        socket.on("allmessages",async (data)=>{
+            const data1 = await data.map(one=>{
+                <p>{one.sender}:{one.chat}</p>
+            })
+            setData1(data);
+            console.log(data1);
+        })
         //return socket.disconnect()
     }, []);
     useEffect(()=>{
@@ -56,13 +67,15 @@ const PrivateChat = () => {
         const msgArr= msgs
         msgArr.push({
             ...data,
-            Id:uid()
+            Id:uid(),
+            time:Date()
         });
         console.log(msgArr)
         setMsgs(msgArr) 
         setCurrentMsg("");
 
     }
+
     }
     const setMsg = ({target}) => {
 
@@ -76,6 +89,15 @@ const PrivateChat = () => {
     }
     return ( 
         <div className="">
+             {
+                
+                data1.map(data =>{
+                    return(
+                    
+                    <p>{data.sender} : {data.chat}</p>
+                    )
+                })
+            }
                 {
                     msgs.map(msg => {
                         return(
@@ -92,5 +114,5 @@ const PrivateChat = () => {
         </div>
      );
 }
- 
-export default PrivateChat;
+
+export default  PrivateChat;
