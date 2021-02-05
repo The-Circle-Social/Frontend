@@ -1,7 +1,8 @@
 import React from "react";
 import validateForget from "../../utils/validateForget.utils";
 import useForget from "../../hooks/useForget.hooks";
-import "./FormForgot.styles.scss";
+//import "./FormForgot.styles.scss";
+import { FormContainer, FormHeader, FormCaption, Form, FormInputContainer, FormInputField, SubmitFormButton, Back, BackLink } from "./FormForgot.styles";
 
 const FormForgot = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForget(
@@ -10,13 +11,13 @@ const FormForgot = ({ submitForm }) => {
   );
 
   return (
-    <div className="form-content-right">
-      <form onSubmit={handleSubmit} className="form" noValidate>
-        <h1>Password Assistance</h1>
-        <p>Enter the e-mail address associated with your The Circle account.</p>
-        <div className="form-inputs">
+    <FormContainer>
+      <Form onSubmit={handleSubmit} noValidate>
+        <FormHeader>Password Assistance</FormHeader>
+        <FormCaption>Enter the e-mail address associated with your The Circle account.</FormCaption>
+        <FormInputContainer>
 
-          <input
+          <FormInputField
             className="form-input"
             type="email"
             name="email"
@@ -25,17 +26,17 @@ const FormForgot = ({ submitForm }) => {
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
-        </div>
+        </FormInputContainer>
 
-        <button className="form-input-btn" type="submit">
+        <SubmitFormButton className="form-input-btn" type="submit">
           Continue
-        </button>
-        <span className="form-back">
-          <a href="/">Back</a>
-        </span>
+        </SubmitFormButton>
+        <Back>
+          <BackLink href="/">Back</BackLink>
+        </Back>
         
-      </form>
-    </div>
+      </Form>
+    </FormContainer>
   );
 };
 

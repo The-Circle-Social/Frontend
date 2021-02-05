@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from "react";
 import validateChangePassword from "../../utils/validateChangePassword.utils";
 import useSignIn from "../../hooks/useSignIn.hooks.";
-import "./FormSignIn.styles.scss";
+import { SignInFormContainer, Form, SignInFormHeading, ShowCheckboxDiv, ShowCheckbox, ForgotPass, ForgotLink, SubmitFormButton, SignUpContainer, SignUpText, SignUpLink, FormInputDiv, FormEmailInput, FormPassInput } from "./FormSignIn.styles";
+//import "./FormSignIn.styles.scss";
 
 const FormSignin = ({ submitForm ,setUser }) => {
   const { handleChange, handleSubmit, values, errors, a } = useSignIn(
@@ -15,14 +16,14 @@ const FormSignin = ({ submitForm ,setUser }) => {
   },[])
   const [showPassword,setShowPassword] = useState(false);
   return (
-    <div className="signIn-form-content-right">
-      <form onSubmit={handleSubmit} className="form" noValidate>
-        <h1>Welcome</h1>
-        <h1>Log In to continue</h1>
+    <SignInFormContainer>
+      <Form onSubmit={handleSubmit} className="form" noValidate>
+        <SignInFormHeading>
+          Welcome!<br />Log In to continue
+        </SignInFormHeading>
 
-        <div className="form-inputs" id="email">
-          <input
-            className="form-input"
+        <FormInputDiv>
+          <FormEmailInput
             type="email"
             name="email"
             placeholder="Email"
@@ -30,11 +31,9 @@ const FormSignin = ({ submitForm ,setUser }) => {
             onChange={handleChange}
           />
           {errors.email && <p>{errors.email}</p>}
-        </div>
-        <div className="form-inputs" >
-          <input
-            id="pass"
-            className="form-input"
+        </FormInputDiv>
+        <FormInputDiv>
+          <FormPassInput
             type={!showPassword?"password":"text"}
             name="password"
             placeholder="Password"
@@ -42,27 +41,28 @@ const FormSignin = ({ submitForm ,setUser }) => {
             onChange={handleChange}
           />
           {errors.password && <p>{errors.password}</p>}
-        </div>
-        <div class="show-checkbox">
+        </FormInputDiv>
+        <ShowCheckboxDiv>
           {/* <input type="checkbox" id="show-pass" name="show-pass" value="Show" />
           <span id="checkbox-label">Show password</span> */}
-          <label><input type="checkbox" onClick={() => setShowPassword(!showPassword)}/> Show password</label>
-        </div>
+          <label><ShowCheckbox type="checkbox" onClick={() => setShowPassword(!showPassword)}/> Show password</label>
+        </ShowCheckboxDiv>
 
-        <span className="form-forgot">
-          <a href="/Forgot">Forgot Password?</a>
-        </span>
+        <ForgotPass>
+          <ForgotLink href="/Forgot">Forgot Password?</ForgotLink>
+        </ForgotPass>
 
-        <button className="signIn-form-input-btn" type="submit">
+        <SubmitFormButton className="signIn-form-input-btn" type="submit">
           Log In
-        </button>
-        <div className="form-signup">
-          <span>Don't have an account?</span>
-          <a href="/Signup">Sign Up</a>
-        </div>
+        </SubmitFormButton>
+
+        <SignUpContainer>
+          <SignUpText>Don't have an account?</SignUpText>
+          <SignUpLink href="/Signup">Sign Up</SignUpLink>
+        </SignUpContainer>
         
-      </form>
-    </div>
+      </Form>
+    </SignInFormContainer>
   );
 };
 
