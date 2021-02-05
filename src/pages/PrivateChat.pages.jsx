@@ -64,7 +64,16 @@ const PrivateChat = () => {
 
     }
     }
+    const setMsg = ({target}) => {
 
+        if(currentMsg===" "){
+            setCurrentMsg("");
+        }
+        else{
+            setCurrentMsg(target.value);
+        }
+        return () => setCurrentMsg(currentMsg);
+    }
     return ( 
         <div className="">
                 {
@@ -75,7 +84,7 @@ const PrivateChat = () => {
                     })
                 }
                 {/* <form action=""> */}
-                    <input type="text" onChange={({target}) => setCurrentMsg(target.value)} value={currentMsg === " "?setCurrentMsg(""):currentMsg}/>
+                    <input type="text" onChange={setMsg} value={currentMsg}/>
                     <button onClick={onClickHandle}>Submit</button>
                     <Link to="/chatdir"> back </Link>
                 {/* </form> */}
