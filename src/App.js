@@ -20,6 +20,8 @@ import Explore from "./pages/Explore.pages";
 import Map from "./pages/Map/Map.pages";
 import PrivateChat from "./pages/PrivateChat.pages.jsx"
 import ChatDir from "./pages/ChatDir.pages";
+import ChangePassword from "./pages/ChangePassword.pages";
+
 //Styles
 import "./App.scss";//import data1 from "./Decrypt.js";
 //Hooks
@@ -30,14 +32,14 @@ function App() {
   const [user, setUser] = useState({});
   useEffect(() => {
     //client.service("message").create({})
-    if 
+    /* if 
       (!user.username &&
       history.location.pathname !== "/SignIn" &&
       history.location.pathname !== "/Forgot"
     ) {
       history.push("/Signup");
       console.log(history);
-    }
+    } */
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -73,6 +75,7 @@ function App() {
         <Route path="/map" exact component={Map} />
         <Route path="/chatdir" exact component={ChatDir}/>
         <Route path="/overview" exact component={Overview} />
+        <Route path="/changePass" exact component={ChangePassword} />
         <Route
           path="/updateUserInfo"
           exact
