@@ -30,14 +30,14 @@ function App() {
   const [user, setUser] = useState({});
   useEffect(() => {
     //client.service("message").create({})
-    // if 
-    //   (!user.username &&
-    //   history.location.pathname !== "/SignIn" &&
-    //   history.location.pathname !== "/Forgot"
-    // ) {
-    //   history.push("/Signup");
-    //   console.log(history);
-    // }
+    if 
+      (!user.username &&
+      history.location.pathname !== "/SignIn" &&
+      history.location.pathname !== "/Forgot"
+    ) {
+      history.push("/Signup");
+      console.log(history);
+    }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
