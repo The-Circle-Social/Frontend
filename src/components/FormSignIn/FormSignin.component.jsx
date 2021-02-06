@@ -45,7 +45,7 @@ const FormSignin = ({ submitForm ,setUser }) => {
         <ShowCheckboxDiv>
           {/* <input type="checkbox" id="show-pass" name="show-pass" value="Show" />
           <span id="checkbox-label">Show password</span> */}
-          <label><ShowCheckbox type="checkbox" onClick={() => setShowPassword(!showPassword)}/> Show password</label>
+          <label><ShowCheckbox type="checkbox" onClick={() => setShowPassword(!showPassword)}/>Show password</label>
         </ShowCheckboxDiv>
 
         <ForgotPass>

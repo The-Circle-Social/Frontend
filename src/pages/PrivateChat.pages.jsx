@@ -11,7 +11,6 @@ const PrivateChat = () => {
         reciever:"",
         text:""
     }]);
-    const [count,setCount] = useState(0)
     const [currentMsg,setCurrentMsg] = useState("")
     useEffect(()=>{
         socket=io("127.0.0.1:3003",{transports: ['websocket']});
