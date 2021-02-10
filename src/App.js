@@ -62,7 +62,7 @@ function App() {
             <ForgetPasswordFormComp history={history} setUser={setUser} />
           )}
         />
-      <Route path="/dm/:user/:friend" render={() => (<PrivateChat user={user}/>)}/>
+      <Route path="/dm/:user/:friend" render={() => (<PrivateChat user={user} type={"private"}/>)}/>
       <Route
           path="/getInfo"
           render={() => <FormSecondary user={user} history={history} />}

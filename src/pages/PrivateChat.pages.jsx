@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import {uid} from "uid"
 import {Link} from "react-router-dom"
 let socket;
-const PrivateChat = () => {
+const PrivateChat = ({type}) => {
     const {friend ,user} = useParams();
     const [msgs,setMsgs] = useState([{
         sender:"",
@@ -40,6 +40,10 @@ const PrivateChat = () => {
       else{
           alert(`${data.sender} has send you a msg`)
       }
+        })
+        socket.on("allPrivateMessages",(data) => {
+            console.log(data)
+            setMsgs(data)
         })
     },[])
 
