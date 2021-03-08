@@ -2,11 +2,11 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
-export default function Cropper({ setImage ,handleSubmit }) {
+export default function Cropper({ setImage ,handleSubmit,aspect }) {
   const [upImg, setUpImg] = useState();
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
-  const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 1 / 1 });
+  const [crop, setCrop] = useState({ unit: "%", width: 30, aspect: 1 / 1});
   const [completedCrop, setCompletedCrop] = useState(null);
   const [dataURI, setDataURI] = useState(null);
   const onSelectFile = (e) => {

@@ -21,6 +21,8 @@ import Map from "./pages/Map/Map.pages";
 import PrivateChat from "./pages/PrivateChat.pages.jsx"
 import ChatDir from "./pages/ChatDir.pages";
 import ChangePassword from "./pages/ChangePassword.pages";
+//Showingposts
+import ShowingPosts from "./components/ShowingPosts/ShowingPosts";
 
 //Styles
 import "./App.scss";//import data1 from "./Decrypt.js";
@@ -76,6 +78,7 @@ function App() {
         <Route path="/chatdir" exact component={ChatDir}/>
         <Route path="/overview" exact component={Overview} />
         <Route path="/changePass" exact component={ChangePassword} />
+        <Route path="/ShowingPosts" exact component={ShowingPosts} />
         <Route
           path="/updateUserInfo"
           exact

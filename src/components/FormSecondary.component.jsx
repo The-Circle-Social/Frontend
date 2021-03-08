@@ -63,7 +63,7 @@ const FormSecondary = ({ user, history }) => {
   };
   return (
     <div>
-      <Cropper setImage={setImage} handleSubmit={handleSubmit} />
+      <Cropper setImage={setImage} handleSubmit={handleSubmit} aspect={1/1} />
       <img src={imgsrc} height="100px" width="100px" alt = "Preview"/>
       <input
         type="text"
