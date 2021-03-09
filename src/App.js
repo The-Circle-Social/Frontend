@@ -2,6 +2,9 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import io from "socket.io-client";
 import { useEffect, useRef, useState } from "react";
 // Components
+import Newblog from "./components/blog/newblog";
+import PostBlog from "./components/blog/PostAndBlog"
+import NewPost from "./components/blog/newpost"
 import Sidebar from "./components/Sidebar.component";
 import FormSecondary from "./components/FormSecondary.component";
 import CrushSelection from "./components/CrushSelection/CrushSelection.component";
@@ -10,6 +13,7 @@ import UpdateUserInfo from "./components/UpdateUserInfo/UpdateUserInfo.component
 import UserProfile from "./components/UserProfile.component";
 //Pages
 import Overview from "./pages/Overview.pages";
+import Friend from "./pages/friendpage";
 import SignupFormComp from "./pages/Signup/Signup.pages";
 import SigninFormComp from "./pages/Signin.pages";
 import ForgetPasswordFormComp from "./pages/Forget.pages";
@@ -25,6 +29,8 @@ import "./App.scss"; //import data1 from "./Decrypt.js";
 import Page404 from "./pages/404Page.pages";
 //Hooks
 //import useLocalStorage from './hooks/useLocalStorage';
+//showingpost
+import ShowingPosts from "./components/tr/ShowingPosts" 
 function App() {
   const history = useHistory();
   const [user, setUser] = useState({
@@ -65,6 +71,10 @@ function App() {
           path="/SignIn"
           render={() => <SigninFormComp history={history} setUser={setUser} />}
         />
+         <Route
+          path="/post" component={NewPost}
+         
+        />
         <Route path="/user/@:username" component={UserProfile} />
         <Route
           path="/Forgot"
@@ -94,6 +104,7 @@ function App() {
         />
         <Route path="/verify" component={FormForgotVerification} />
         <Route path="/map" exact component={Map} />
+        <Route path="/ShowingPosts" exact component={ShowingPosts}/>
         <Route
           path="/chatdir"
           exact
@@ -101,7 +112,11 @@ function App() {
             <ChatDir setGroup={setCurrentGroup} user={user} history={history} />
           )}
         />
+        <Route path="/blog" exact component ={Newblog}/> 
+        <Route path="/post" exact component ={NewPost}/> 
+        <Route path="/postblog" exact component ={PostBlog}/> 
         <Route path="/overview" exact component={Overview} />
+        <Route path="/friendpage" exact component={Friend} />
         <Route path="/changePass" exact component={ChangePassword} />
         <Route
           path="/:groupid/edit/:user"
