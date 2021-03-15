@@ -19,8 +19,8 @@ const NewPost = () => {
    
      useEffect(()=>{
       socket = io("127.0.0.1:3008", { transports: ["websocket"] });
-      return socket.disconnect;
-     },[])
+      
+     })
      const savePostImg = event =>{
         setImage(event.target.value)      
     
@@ -44,7 +44,7 @@ const NewPost = () => {
   
     const savePost = (event) => {
       event.preventDefault();
-      socket = io("127.0.0.1:3008", { transports: ["websocket"] });
+      
       setId(Date.now());
       const arr = [title,id,image,"","kandarp","post"]
       console.log(title);
@@ -53,7 +53,7 @@ const NewPost = () => {
       socket.on('kandarp',(data)=>{
         console.log(data);
       })
-  
+      
       console.log(image)
       setImage("");
       setTitle("");
