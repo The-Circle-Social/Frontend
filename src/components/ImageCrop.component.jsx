@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
-export default function Cropper({ setImage ,handleSubmit }) {
+export default function Cropper({ setImage, handleSubmit }) {
   const [upImg, setUpImg] = useState();
   const imgRef = useRef(null);
   const previewCanvasRef = useRef(null);
@@ -22,6 +22,10 @@ export default function Cropper({ setImage ,handleSubmit }) {
   }, []);
 
   useEffect(() => {
+    console.log(
+      !completedCrop || !previewCanvasRef.current || !imgRef.current,
+      "hjsdga"
+    );
     if (!completedCrop || !previewCanvasRef.current || !imgRef.current) {
       return;
     }
@@ -52,18 +56,16 @@ export default function Cropper({ setImage ,handleSubmit }) {
       crop.width,
       crop.height
     );
+    console.log(canvas.toDataURL(), "iosdjio");
     setDataURI(canvas.toDataURL());
-  
   }, [completedCrop]);
   const onsubmit = () => {
     if (!dataURI) return;
 
-    
     setImage(dataURI);
-    handleSubmit()
+    handleSubmit();
   };
   const onClick = () => {
-   
     setUpImg(false);
   };
   return (
@@ -78,14 +80,23 @@ export default function Cropper({ setImage ,handleSubmit }) {
       </div>
 
       <div>
-      <ReactCrop
-              src={upImg}
-              onImageLoaded={onLoad}
-              crop={crop}
-              onChange={(c) => setCrop(c)}
-              onComplete={(c) => setCompletedCrop(c)}
-            />
+        <ReactCrop
+          src={upImg}
+          onImageLoaded={onLoad}
+          crop={crop}
+          onChange={(c) => setCrop(c)}
+          onComplete={(c) => setCompletedCrop(c)}
+        />
+        <canvas
+          ref={previewCanvasRef}
+          // Rounding is important so the canvas width and height matches/is a multiple for sharpness.
 
+          style={{
+            width: Math.round(completedCrop?.width ?? 0),
+            height: Math.round(completedCrop?.height ?? 0),
+            display: "none",
+          }}
+        />
         <button onClick={onsubmit}>Submit</button>
       </div>
     </div>

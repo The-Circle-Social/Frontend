@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import useSignUp from "../../hooks/useSignUp.hooks";
 import axios from "axios";
 import Cropper from "../ImageCrop.component";
 const UpdateUserInfo = ({ user, history, setUser }) => {

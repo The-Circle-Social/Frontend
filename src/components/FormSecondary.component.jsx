@@ -9,7 +9,7 @@ const FormSecondary = ({ user, history }) => {
   const [dob, setDob] = useState("");
   // const []
   const handleSubmit = (e) => {
-    //console.log (image)
+    console.log(image, "iojdiosaji", e);
     const data = JSON.stringify({
       url: image,
       name1: user.username,
@@ -64,7 +64,7 @@ const FormSecondary = ({ user, history }) => {
   return (
     <div>
       <Cropper setImage={setImage} handleSubmit={handleSubmit} />
-      <img src={imgsrc} height="100px" width="100px" alt = "Preview"/>
+      <img src={imgsrc} height="100px" width="100px" alt="Preview" />
       <input
         type="text"
         name="description"
