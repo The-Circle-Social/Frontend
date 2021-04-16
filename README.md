@@ -1,6 +1,3 @@
-#Logical Bugs
-Menu Bar 
-
 #File Renamed
 Form.js:Signup.pages.jsx
 Form2.js:Signin.pages.jsx

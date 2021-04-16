@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
@@ -7,7 +7,7 @@ import { SidebarData } from "./SidebarData.component";
 import SubMenu from "./SubMenu.component";
 import { IconContext } from "react-icons/lib";
 //import SearchBar from "./SearchBar.component";
-
+import { UserContext } from "../Contexts/UserContext.context";
 const Nav = styled.div`
   background: #15171c;
   height: 80px;
@@ -41,9 +41,9 @@ const SidebarNav = styled.nav`
 const SidebarWrap = styled.div`
   width: 100%;
 `;
-const Sidebar = ({ setUser ,history}) => {
+const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
-
+  const { setUser } = useContext(UserContext);
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -53,8 +53,12 @@ const Sidebar = ({ setUser ,history}) => {
           <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <Link to="/Signup" onClick={() => {setUser(null)
-          }}>
+          <Link
+            to="/Signup"
+            onClick={() => {
+              setUser(null);
+            }}
+          >
             Log Out
           </Link>
           <Link to="/updateUserInfo">Update</Link>

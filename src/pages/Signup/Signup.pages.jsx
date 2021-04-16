@@ -1,14 +1,21 @@
 //* Package Imports
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 //* Components Imports
 import FormSignup from "../../components/FormSignup/FormSignup.component";
 //* Assets Imports
 import ImageBig from "../../assets/banner-big.png";
 //* Styles Imports
 import "./Signup.styles.scss";
+//* Context
+import { UserContext } from "../../Contexts/UserContext.context";
 //* SignUp Page Component
-const Signup = ({ history, setUser }) => {
+const Signup = () => {
+  //* Destructuring setUser from UserContext Context
+  const { setUser } = useContext(UserContext);
+  //* History
+  const history = useHistory();
   //* Stores User Location
   const [userLocation, setUserLocation] = useState({
     latitude: 0,
@@ -95,7 +102,7 @@ const Signup = ({ history, setUser }) => {
   return (
     //* Main Container
     <div className="form-container">
-      {/* Container Element which should be place Left */}
+      {/* Container for Elements which should be place Left */}
       <div className="form-content-left">
         {/* Logo Image container */}
         <div className="form-content-img-container">

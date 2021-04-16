@@ -56,16 +56,16 @@ const useSignIn = (callback, validate) => {
       console.log(user1);
       axios({
         method: "post",
-        url: "http://localhost:8000/check",
+        url: "http://localhost:8000/login",
         data: user1,
       })
         .then((resp) => {
           console.log(resp.status);
-          setChecker({checker:resp.status})
+          setChecker({ checker: resp.status });
 
           if (checker === 201) {
             setA(true);
-            setValues2(resp.data)
+            setValues2(resp.data);
           }
         })
         .catch((err) => console.log(err));
